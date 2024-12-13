@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcard Study App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="sidebar">
+      <div class="controls">
+        <button id="addCategory">Add Category</button>
+        <button id="deleteCategory">Delete Category</button>
+        <div id="categoryList"></div>
+        <button id="addCard">Add Flashcard</button>
+        <button id="editCard">Edit Flashcard</button>
+        <button id="deleteCard">Delete Flashcard</button>
+        <button id="shuffleCards">Shuffle</button>
+      </div>
+      <div class="progress">
+        <button id="markKnown">Mark as Known</button>
+        <div id="stats">Known: 0 | Unknown: 0</div>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="flashcard-container">
+        <div class="flashcard" id="flashcard">
+          <div class="front">Question</div>
+          <div class="back">Answer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Adding/Editing Flashcards -->
+  <div id="flashcardModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2 id="modalTitle">Add Flashcard</h2>
+      <form id="flashcardForm">
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <!-- Categories will be dynamically added here -->
+        </select>
+        <button type="button" id="newCategoryButton">New Category</button>
+        <label for="question">Question:</label>
+        <input type="text" id="question" name="question" required>
+        <label for="answer">Answer:</label>
+        <input type="text" id="answer" name="answer" required>
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal for Adding Categories -->
+  <div id="categoryModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Add Category</h2>
+      <form id="categoryForm">
+        <label for="categoryName">Category Name:</label>
+        <input type="text" id="categoryName" name="categoryName" required>
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal for Deleting Categories -->
+  <div id="deleteCategoryModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Delete Category</h2>
+      <form id="deleteCategoryForm">
+        <label for="deleteCategorySelect">Select Category:</label>
+        <select id="deleteCategorySelect" name="deleteCategorySelect" required>
+          <!-- Categories will be dynamically added here -->
+        </select>
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
